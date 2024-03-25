@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import "../styles.css";
 
 function Stopwatch() {
-  const [time, setTime] = useState(0);
-  const [sec, setSec] = useState(0);
-  const [min, setMin] = useState(0);
-  const [lap, setLap] = useState<any>([]);
-  const [intervalId, setIntervalId] = useState(null);
+  const [time, setTime] = useState<number>(0);
+  const [sec, setSec] = useState<number>(0);
+  const [min, setMin] = useState<number>(0);
+  const [lap, setLap] = useState<string[]>([]);
+  const [intervalId, setIntervalId] = useState<number | null>(null);
 
   const handleStart = () => {
     if (!intervalId) {
-      const id: any = setInterval(() => {
+      const id: number = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 10);
       setIntervalId(id);
@@ -70,9 +70,9 @@ function Stopwatch() {
       </div>
       <div>
         <h4>Lap List</h4>
-        <div>
+        <div className="lap">
           {lap.map((el: any) => {
-            return <div>{el}</div>;
+            return <div className="singleLap">{el}</div>;
           })}
         </div>
       </div>
