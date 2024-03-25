@@ -7,5 +7,5 @@ Features:
 - Reset timer
 - Add in Laps
 
-<img src="" alt="stopwatcg">
+<img src="https://i.imgur.com/JUsKcLu.png" alt="stopwatcg">
 
