@@ -6,12 +6,12 @@ function Stopwatch() {
   const [sec, setSec] = useState<number>(0);
   const [min, setMin] = useState<number>(0);
   const [lap, setLap] = useState<string[]>([]);
-  const [intervalId, setIntervalId] = useState<number | null>(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   const handleStart = () => {
     if (!intervalId) {
-      const id: number = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
+      const id: NodeJS.Timeout = setInterval(() => {
+        setTime((prevTime: number) => prevTime + 1);
       }, 10);
       setIntervalId(id);
     }
@@ -19,11 +19,11 @@ function Stopwatch() {
 
   useEffect(() => {
     if (time >= 100) {
-      setSec((prevSec) => prevSec + 1);
+      setSec((prevSec: number) => prevSec + 1);
       setTime(0);
     }
     if (sec >= 60) {
-      setMin((prevMin) => prevMin + 1);
+      setMin((prevMin: number) => prevMin + 1);
       setSec(0);
     }
   }, [time]);
